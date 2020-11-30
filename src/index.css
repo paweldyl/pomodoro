@@ -5,9 +5,189 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+	background-color: #222324;
+	color:white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+*{
+	box-sizing: border-box;
+}
+.app{
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.toggle-menu{
+	position: fixed;
+	left: 0;
+	top: 0;
+	padding:10px;
+	cursor: pointer;
+	z-index: 3;
+}
+.toggle-menu div{
+	background-color: white;
+	width: 40px;
+	height: 4px;
+	margin: 7px;
+	transition-property: opacity, transform;
+	transition-duration: .5s;
+}
+.toggle-menu.vissible .burger-line-1{
+	transform: rotate(45deg) translateY(15px);
+}
+.toggle-menu.vissible .burger-line-2{
+	opacity: 0;
+}
+.toggle-menu.vissible .burger-line-3{
+	transform: rotate(-45deg) translateY(-14px);
+}
+.hidden-menu{
+	position: fixed;
+	left:0;
+	top:0;
+	width: 0px;
+	height: 100%;
+	background-color: #222324;
+	display: flex;
+	flex-direction: column;
+	padding-top: 46px;
+	z-index: 2;
+	border-right: solid 2px #111213;
+	overflow: hidden;
+	transition: 0.3s width;
+}
+.vissible .hidden-menu{
+	width: 100%;
+}
+@media screen and (min-width: 800px){
+	.vissible .hidden-menu{
+		width: 500px;
+	}
+}
+.hidden-menu div{
+	width: calc(100% - 30px);
+	padding: 15px;
+	text-align: center;
+	cursor: pointer;
+}	
+.hidden-menu div:hover{
+	background-color: #333545;
+}
+.shady-area{
+	position: fixed;
+	left:0;
+	top:0;
+	opacity: 0.3;
+	background-color: black;
+	width: 100%;
+	height: 100vh;
+	display: none;
+	z-index: 1;
+}
+.vissible .shady-area{
+	display: block;
+}
+.timer{	
+	position: relative;
+	width: 300px;
+	height: 300px;
+	max-height: 100vw;
+	padding:20px;
+	border: 3px white solid;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 45px;
+	font-weight: 600;
+}
+.curr-cycle{
+	position: absolute;
+	top: 17%;
+	left: 50%;
+	transform: translate(-50%);
+	font-weight: 400;
+	font-size: 33px;
+}
+.time-buttons{
+	bottom: 20%;
+	left:50%;
+	position: absolute;
+	display: flex;
+	transform: translate(-50%);
+	color:#fff;
+}
+.time-buttons div{
+	margin:18px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.time-buttons div:hover{
+	color:#bbb;
+}
+.settings input{
+	padding: 10px;
+	font-size: 15px;
+}
+.settings input:focus{
+	outline: none;
+}
+.settings button{
+	padding: 15px;
+	background-color: green;
+	border:none;
+	color:white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.todo{
+	width: 90%;
+}
+@media screen and (min-width: 700px){
+	.todo{
+		width: 500px;
+	}
+}
+.todo-item{
+	width: 100%;
+	padding: 13px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.todo-item div{
+	color:red;
+	align-self: flex-start;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 20px;
+	height: auto;
+}
+.todo-item input{
+	padding: 15px;
+	width: 100%;
+	background-color: transparent;
+	color:white;
+	border:none;
+	outline: none;
+	font-size: 20px;
+	padding: 0;
+}
+.todo-item button{
+	padding: 15px;
+	background-color: green;
+	border:none;
+	color:white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.tod-item input:focus{
+	outline: none;
 }
